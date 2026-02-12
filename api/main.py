@@ -4,9 +4,8 @@ from api.routes.rag import router as rag_router
 from api.routes.chat import router as conv_router
 from api.routes.search import router as search_router
 
-from core.retriever import Retriever
 from core.llm import LLMs
-
+from core.retriever import Retriever
 
 app = FastAPI()
 app.include_router(search_router) # /search

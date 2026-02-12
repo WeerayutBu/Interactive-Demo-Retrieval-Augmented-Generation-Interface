@@ -48,7 +48,7 @@ class BaseLLM:
     def __call__(self, query, history) -> str:
         facts = self.retriever(query)
         messages = [
-            {"role": "system", "content": "Answer based only on the provided facts. If the facts are not relevant or insufficient, say I don't know."},
+            {"role":"system","content":"Provide a concise answer based solely on the given facts. If they are irrelevant or insufficient, say \"I don't know.\""},
             {"role": "system", "content": "Context:\n" + "\n".join(map(str, facts))},
             *history,  # limit history
             {"role": "user", "content": query},
@@ -74,7 +74,6 @@ class LLMs:
 
 def main() -> None:
     llm = LLMs()
-
     messages: List[Message] = [
         {"role": "system", "content": "Answer the question."},
         {"role": "human", "content": "Count number 1,2,3"},
@@ -86,7 +85,6 @@ def main() -> None:
 
     out = llm(messages)
     print(out)
-    breakpoint()
 
 if __name__ == "__main__":
     main()

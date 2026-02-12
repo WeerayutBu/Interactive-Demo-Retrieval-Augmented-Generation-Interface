@@ -1,13 +1,6 @@
-import os
 import json
-import torch
-import shutil
 import requests
-
-from datasets import load_dataset
 from src.settings import settings
-# from langchain_chroma import Chroma
-
 
 class BaseRetriever:
     def __init__(self, top_k=8, url=settings.VECTOR_DB_API_IP, token_id=settings.VECTOR_DB_API_KEY):

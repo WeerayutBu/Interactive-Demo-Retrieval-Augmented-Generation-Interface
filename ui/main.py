@@ -1,7 +1,6 @@
 import streamlit as st
 from display import display_chat_interface, display_sidebar
 
-st.title("Chat Interface")
 
 # Initialize session state variables
 if "messages" not in st.session_state:
